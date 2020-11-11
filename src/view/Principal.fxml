@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PrincipalController">
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="591.0" text="Sistema Acadêmico">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="30.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="447.0" prefWidth="169.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#abreCadDisciplinas" prefHeight="39.0" prefWidth="125.0" style="-fx-background-radius: 30; -fx-border-color: red; -fx-border-radius: 30;" text="Disciplinas">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" right="10.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#abreCadProfessores" prefHeight="39.0" prefWidth="125.0" style="-fx-background-radius: 30; -fx-border-color: red; -fx-border-radius: 30;" text="Professores">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" right="10.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="30.0" layoutY="99.0" mnemonicParsing="false" onAction="#abreAlocacao" prefHeight="39.0" prefWidth="125.0" style="-fx-background-radius: 30; -fx-border-color: red; -fx-border-radius: 30;" text="Alocação">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" right="10.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#abreCadAlunos" prefHeight="39.0" prefWidth="125.0" style="-fx-background-radius: 30; -fx-border-color: red; -fx-border-radius: 30;" text="Alunos">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" right="10.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#abreTela4" prefHeight="39.0" prefWidth="125.0" style="-fx-background-radius: 30; -fx-border-color: red; -fx-border-radius: 30;" text="Matrícula">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" right="10.0" top="15.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <bottom>
+      <Label fx:id="lblData" text="Data Atual:" textFill="#f81010" BorderPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane fx:id="tabPane" layoutX="106.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: red; -fx-border-radius: 30;" tabClosingPolicy="ALL_TABS" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

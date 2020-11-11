@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cd21d3d1-7421-44f5-928d-f06521101ae7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../3_semestre/fundamentos_de_banco_de_dados/exercicios_08.doc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../3_semestre/fundamentos_de_banco_de_dados/resolucao_exercicios/8/1.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/out/production/stack/DynamicStack.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/out/production/stack/DynamicStackTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/out/production/stack/META-INF/stack.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/out/production/stack/Stack.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/out/production/stack/StackException$ErrorCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/out/production/stack/StackException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/src/DynamicStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/src/DynamicStackTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/src/Stack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/src/StackException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../estruturas_de_dados/stack/stack.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../availiacao_01/src/sample/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../availiacao_01/src/sample/Microwave.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gustavo_mendes_de_medeiros/conf.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gustavo_mendes_de_medeiros/src/sample/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/assets/application.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/controllers/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/controllers/PageFourController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/controllers/PageOneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/controllers/PageThreeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/controllers/PageTwoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/controllers/PopupWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/entities/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/exceptions/ValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/views/Main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/views/PageFour.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/views/PageOne.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/views/PageThree.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/views/PageTwo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../javafx/src/views/PopupWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3_semestre/pesquisa_operacional/livro_completo.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../../3_semestre/pesquisa_operacional/livro_completo.pdf" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1kAGV294UG7RonqMrHH3wdEbFI9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.Main" />
+      <module name="BancoDeDados1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Java Scratch">
+      <option name="VM_PARAMETERS" value="--module-path /Library/Java/JavaVirtualMachines/javafx-sdk-14.0.2.1/lib --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cd21d3d1-7421-44f5-928d-f06521101ae7" name="Default Changelist" comment="" />
+      <created>1605136002784</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605136002784</updated>
+      <workItem from="1605136006054" duration="288000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
