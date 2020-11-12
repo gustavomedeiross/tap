@@ -71,4 +71,33 @@ public class MatriculaDAO {
 		}
 		return lista;
 	}
+
+	public static ArrayList<Matricula> buscaPorAlunoESemestre(Pessoa p, String semestre){
+		ArrayList<Matricula> lista = new ArrayList<Matricula>();
+		Connection c = Conexao.conn();
+
+		try {
+			String sql = "select * from matricula where id_aluno=? AND semestre = ?";
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setInt(1, p.getId());
+			ps.setString(2, semestre);
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()) {
+				Matricula m = new Matricula();
+
+				int idDisc = rs.getInt("id_disciplina");
+				Disciplina d = DisciplinaDAO.buscaPorId(idDisc, true);
+
+				m.setDisciplina(d);
+				m.setAluno(p);
+				m.setSemestre(rs.getString("semestre"));
+				lista.add(m);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
 }

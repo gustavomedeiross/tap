@@ -77,11 +77,18 @@ public class MatriculaController {
 		}
 	}
 
+	@FXML
+	public void buscaMateriasPorAlunoESemestre() {
+		Pessoa aluno = cbAlunos.getSelectionModel().getSelectedItem();
+		String semestre = txtSemestre.getText();
+		ArrayList<Matricula> matriculas = MatriculaDAO.buscaPorAlunoESemestre(aluno, semestre);
+		tbl.setItems(FXCollections.observableArrayList(matriculas));
+	}
+
 	@FXML 
 	public void selecionaAluno() {
 		Pessoa aluno = cbAlunos.getSelectionModel().getSelectedItem();
 		ArrayList<Matricula> matriculas = MatriculaDAO.buscaPorAluno(aluno);
-		matriculas.forEach(m -> System.out.println(m.getAluno().getNome()));
 		tbl.setItems(FXCollections.observableArrayList(matriculas));
 	}
 

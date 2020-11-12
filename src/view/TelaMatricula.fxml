@@ -66,6 +66,11 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Button>
+                  <Button mnemonicParsing="false" onAction="#buscaMateriasPorAlunoESemestre" text="Buscar">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" />
