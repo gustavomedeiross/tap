@@ -31,13 +31,11 @@ public class AlocacaoController {
 	@FXML TableColumn<Disciplina, Number> colCarga;
 
 	public void initialize() {
-
 		cbDisciplinas.setItems(FXCollections.observableArrayList(DisciplinaDAO.listaTodas(true)));
 		cbProfessores.setItems(FXCollections.observableArrayList(PessoaDAO.listaTodas("P", true)));
 		colNome.setCellValueFactory(cellData -> cellData.getValue().nomeProperty());
 		colCarga.setCellValueFactory(cellData -> cellData.getValue().cargaHorariaProperty());
 		eventoChangeProfessor();
-
 	}
 
 	@FXML
@@ -45,7 +43,7 @@ public class AlocacaoController {
 		Pessoa p = cbProfessores.getSelectionModel().getSelectedItem();
 		Disciplina d = tbl.getSelectionModel().getSelectedItem();
 		if(p!= null && d!=null) {
-			if(Mensagens.msgOkCancel("exclusão", "tem certeza que deseja excluir?")==ButtonType.OK) {
+			if(Mensagens.msgOkCancel("exclusï¿½o", "tem certeza que deseja excluir?")==ButtonType.OK) {
 				AlocacaoDAO.excluirAlocacao(p, d);
 				selecionaProfessor();
 			}
@@ -61,7 +59,7 @@ public class AlocacaoController {
 			AlocacaoDAO.novaAlocacao(p, d);
 			selecionaProfessor();
 			cbDisciplinas.getSelectionModel().select(-1);
-		}else {
+		} else {
 			Mensagens.msgErro("ERRO", "selecione um professor e uma disciplina");
 		}
 	}

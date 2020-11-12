@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import domain.Disciplina;
 import domain.Pessoa;
 import util.Conexao;
 
@@ -109,5 +111,31 @@ public class PessoaDAO {
 			e.printStackTrace();
 		}
 		return lista;
+	}
+
+	public static Pessoa buscaPorId(int id){
+		Pessoa p = new Pessoa();
+		Connection c = Conexao.conn();
+		try {
+			String sql = "select * from pessoa where id = ?";
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()) {
+				p.setId(rs.getInt("id"));
+				p.setNome(rs.getString("nome"));
+				p.setSexo(rs.getString("Sexo"));
+				p.setEmail(rs.getString("email"));
+				p.setTelefone(rs.getString("telefone"));
+				p.setNascimento(rs.getString("nascimento"));
+				p.setTipo(rs.getString("tipo"));
+				p.setAtivo(rs.getString("ativo").equals("S"));
+			}
+			c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return p;
 	}
 }

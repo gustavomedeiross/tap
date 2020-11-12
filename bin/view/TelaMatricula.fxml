@@ -74,7 +74,7 @@
             <TableView fx:id="tbl" prefHeight="234.0" prefWidth="551.0">
               <columns>
                 <TableColumn fx:id="colNome" prefWidth="296.0" text="Nome" />
-                <TableColumn fx:id="colCarga" prefWidth="253.0" text="Carga Horaria" />
+                <TableColumn fx:id="colSemestre" prefWidth="253.0" text="Semestre" />
               </columns>
             </TableView>
          </children>

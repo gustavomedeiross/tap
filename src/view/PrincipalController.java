@@ -14,8 +14,6 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
 public class PrincipalController {
-	
-	
 	 @FXML
 	 private Label lblData;
 
@@ -33,20 +31,16 @@ public class PrincipalController {
 	    @FXML
 	    void abreCadDisciplinas() {
 	    	abreTab("Disciplinas", "Disciplina.fxml");
-
 	    }
 
 	    @FXML
 	    void abreCadProfessores() {
 	    	abreTab("Professores", "TelaProfessores.fxml");
-
-
 	    }
 
 	    @FXML
 	    void abreAlocacao() {
-	    	abreTab("Alocação", "Alocacao.fxml");
-
+	    	abreTab("AlocaÃ§Ã£o", "Alocacao.fxml");
 	    }
 	    @FXML
 	    void abreCadAlunos() {
@@ -55,9 +49,7 @@ public class PrincipalController {
 
 	    @FXML
 	    void abreTela4() {
-	    	abreTab("matrícula", "TelaMatricula.fxml");
-
-
+	    	abreTab("matrÃ­cula", "TelaMatricula.fxml");
 	    }
 	    
 	    

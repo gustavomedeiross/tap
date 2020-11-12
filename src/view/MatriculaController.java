@@ -6,7 +6,10 @@ import dao.DisciplinaDAO;
 import dao.MatriculaDAO;
 import dao.PessoaDAO;
 import domain.Disciplina;
+import domain.Matricula;
 import domain.Pessoa;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -25,20 +28,20 @@ public class MatriculaController {
 
 	@FXML TextField txtSemestre;
 
-	@FXML TableView<Disciplina> tbl;
+//	@FXML TableView<Disciplina> tbl;
+	@FXML TableView<Matricula> tbl;
 
-	@FXML TableColumn<Disciplina, String> colNome;
+	@FXML TableColumn<Matricula, String> colNome;
 
-	@FXML TableColumn<Disciplina, Number> colCarga;
+	@FXML TableColumn<Matricula, String> colSemestre;
 
 
 
 	public void initialize() {
-
 		cbDisciplinas.setItems(FXCollections.observableArrayList(DisciplinaDAO.listaTodas(true)));
 		cbAlunos.setItems(FXCollections.observableArrayList(PessoaDAO.listaTodas("A", true)));
-		colNome.setCellValueFactory(cellData -> cellData.getValue().nomeProperty());
-		colCarga.setCellValueFactory(cellData -> cellData.getValue().cargaHorariaProperty());
+		colNome.setCellValueFactory(cellData -> cellData.getValue().getDisciplina().nomeProperty());
+		colSemestre.setCellValueFactory(cellData -> cellData.getValue().semestreProperty());
 		eventoChangeAluno();
 	}
 
@@ -46,9 +49,14 @@ public class MatriculaController {
 	public void incluiMatricula() {
 		Pessoa a = cbAlunos.getSelectionModel().getSelectedItem();
 		Disciplina d = cbDisciplinas.getSelectionModel().getSelectedItem();
+		String semestre = txtSemestre.getText();
 
-		if(a!= null && d!=null) {
-			MatriculaDAO.novaMatricula(a, d);
+		if(a != null && d != null && semestre != null) {
+			Matricula m = new Matricula();
+			m.setAluno(a);
+			m.setDisciplina(d);
+			m.setSemestre(semestre);
+			MatriculaDAO.novaMatricula(m);
 			cbDisciplinas.getSelectionModel().select(-1);
 			selecionaAluno();
 		}else {
@@ -59,9 +67,9 @@ public class MatriculaController {
 	@FXML
 	public void excluiMatricula() {
 		Pessoa a = cbAlunos.getSelectionModel().getSelectedItem();
-		Disciplina d = tbl.getSelectionModel().getSelectedItem();
+		Disciplina d = tbl.getSelectionModel().getSelectedItem().getDisciplina();
 		if(a!= null && d!=null) {
-			if(Mensagens.msgOkCancel("exclusão", "tem certeza que deseja excluir?")==ButtonType.OK) {
+			if(Mensagens.msgOkCancel("exclusï¿½o", "tem certeza que deseja excluir?")==ButtonType.OK) {
 				MatriculaDAO.excluirMatricula(a, d);
 
 			}
@@ -71,22 +79,13 @@ public class MatriculaController {
 
 	@FXML 
 	public void selecionaAluno() {
-
 		Pessoa aluno = cbAlunos.getSelectionModel().getSelectedItem();
-		ArrayList<Disciplina> disciplinas = MatriculaDAO.buscaPorAluno(aluno);
-		tbl.setItems(FXCollections.observableArrayList(disciplinas));
+		ArrayList<Matricula> matriculas = MatriculaDAO.buscaPorAluno(aluno);
+		matriculas.forEach(m -> System.out.println(m.getAluno().getNome()));
+		tbl.setItems(FXCollections.observableArrayList(matriculas));
 	}
 
 	private void eventoChangeAluno() {
-		cbAlunos.valueProperty().addListener(new ChangeListener<Pessoa>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Pessoa> arg0, Pessoa arg1, Pessoa arg2) {
-				selecionaAluno();
-
-			}
-		});
+	    cbAlunos.valueProperty().addListener((e, o, n) -> selecionaAluno());
 	}
-
-
 }

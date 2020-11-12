@@ -5,19 +5,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import domain.Aluno;
 import domain.Disciplina;
+import domain.Matricula;
 import domain.Pessoa;
 import util.Conexao;
 
 public class MatriculaDAO {
-	public static void novaMatricula(Pessoa a,Disciplina d) {
+	public static void novaMatricula(Matricula matricula) {
 		Connection c = Conexao.conn();
 
 		try {
-			String sql = "insert into matricula (id_aluno, id_disciplina) values (?,?)";
+			String sql = "insert into matricula (id_aluno, id_disciplina, semestre) values (?,?, ?)";
 			PreparedStatement ps = c.prepareStatement(sql);
-			ps.setInt(1, a.getId());
-			ps.setInt(2, d.getId());
+			ps.setInt(1, matricula.getAluno().getId());
+			ps.setInt(2, matricula.getDisciplina().getId());
+			ps.setString(3, matricula.getSemestre());
 			ps.executeUpdate();
 			c.close();
 		} catch (Exception e) {
@@ -39,11 +42,10 @@ public class MatriculaDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	public static ArrayList<Disciplina> buscaPorAluno(Pessoa p){
-		ArrayList<Disciplina> lista = new ArrayList<Disciplina>();
+	public static ArrayList<Matricula> buscaPorAluno(Pessoa p){
+		ArrayList<Matricula> lista = new ArrayList<Matricula>();
 		Connection c = Conexao.conn();
 
 		try {
@@ -53,8 +55,15 @@ public class MatriculaDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()) {
+			    Matricula m = new Matricula();
+
 				int idDisc = rs.getInt("id_disciplina");
-				lista.add(DisciplinaDAO.buscaPorId(idDisc, true));
+				Disciplina d = DisciplinaDAO.buscaPorId(idDisc, true);
+
+				m.setDisciplina(d);
+				m.setAluno(p);
+				m.setSemestre(rs.getString("semestre"));
+				lista.add(m);
 			}
 
 		} catch (Exception e) {
@@ -62,5 +71,4 @@ public class MatriculaDAO {
 		}
 		return lista;
 	}
-
 }
