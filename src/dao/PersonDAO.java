@@ -5,12 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import domain.Disciplina;
 import domain.Pessoa;
 import util.Conexao;
 
-public class PessoaDAO {
-	public static void novaPessoa(Pessoa p) {
+public class PersonDAO {
+	public static void create(Pessoa p) {
 		Connection c = Conexao.conn();
 
 		try {
@@ -31,7 +30,7 @@ public class PessoaDAO {
 		}
 
 	}
-	public static void alteraPessoa(Pessoa p) {
+	public static void update(Pessoa p) {
 		Connection c = Conexao.conn();
 		
 		try {
@@ -53,19 +52,19 @@ public class PessoaDAO {
 		}
 		
 	}
-	public static ArrayList<Pessoa> listaTodas(String tipo){
-		return listaTodas(tipo,false);
+	public static ArrayList<Pessoa> all(String tipo){
+		return all(tipo,false);
 		
 	}
-	public static ArrayList<Pessoa> listaTodas(String tipo,Boolean ativo){
+	public static ArrayList<Pessoa> all(String type, Boolean isActive){
 		Connection c = Conexao.conn();
 		ArrayList<Pessoa> lista = new ArrayList<Pessoa>();
 		try {
 			String sql = "select * from Pessoa where tipo=?  order by nome";
-			if(ativo)
+			if(isActive)
 				sql = "select * from Pessoa where tipo=? and ativo ='S'  order by nome";
 			PreparedStatement ps = c.prepareStatement(sql);
-			ps.setString(1, tipo);
+			ps.setString(1, type);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Pessoa p = new Pessoa();
@@ -75,8 +74,8 @@ public class PessoaDAO {
 				p.setEmail(rs.getString("email"));
 				p.setTelefone(rs.getString("telefone"));
 				p.setNascimento(rs.getString("nascimento"));
-				p.setTipo(tipo);
-				p.setAtivo(rs.getString("ativo").equals("S")?true:false);
+				p.setTipo(type);
+				p.setAtivo(rs.getString("isActive").equals("S")?true:false);
 				lista.add(p);
 			}
 			c.close();
@@ -86,11 +85,12 @@ public class PessoaDAO {
 		}
 		return lista;
 	}
-	public static ArrayList<Pessoa> filtra(String tipo, String filtro){
+
+	public static ArrayList<Pessoa> filter(String type, String filter) {
 		Connection c = Conexao.conn();
 		ArrayList<Pessoa> lista = new ArrayList<Pessoa>();
 		try {
-			String sql = "select * from Pessoa where tipo=? and nome like '"+filtro+"' order by nome";
+			String sql = "select * from Pessoa where tipo=? and nome like '"+filter+"' order by nome";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
@@ -101,7 +101,7 @@ public class PessoaDAO {
 				p.setEmail(rs.getString("email"));
 				p.setTelefone(rs.getString("telefone"));
 				p.setNascimento(rs.getString("nascimento"));
-				p.setTipo(tipo);
+				p.setTipo(type);
 				p.setAtivo(rs.getString("ativo").equals("S")?true:false);
 				lista.add(p);
 			}
@@ -113,7 +113,7 @@ public class PessoaDAO {
 		return lista;
 	}
 
-	public static Pessoa buscaPorId(int id){
+	public static Pessoa findById(int id){
 		Pessoa p = new Pessoa();
 		Connection c = Conexao.conn();
 		try {

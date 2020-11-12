@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd21d3d1-7421-44f5-928d-f06521101ae7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banco/aula.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/banco/aula.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/dao/MatriculaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/dao/MatriculaDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/MatriculaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/MatriculaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/view/TelaMatricula.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/view/TelaMatricula.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/MatriculaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/MatriculaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/AlocacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AlocacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DisciplinaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/SubjectDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/MatriculaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/EnrollmentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/PessoaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AlocacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AlocacaoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CadAlunosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CadAlunosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CadProfessorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CadProfessorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DisciplinaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DisciplinaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MatriculaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MatriculaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/TelaMatricula.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TelaMatricula.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PrincipalController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +104,8 @@
       <option name="presentableId" value="Default" />
       <updated>1605136002784</updated>
       <workItem from="1605136006054" duration="288000" />
-      <workItem from="1605136462281" duration="8987000" />
+      <workItem from="1605136462281" duration="9085000" />
+      <workItem from="1605188183325" duration="655000" />
     </task>
     <servers />
   </component>

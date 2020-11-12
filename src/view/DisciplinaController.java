@@ -2,7 +2,7 @@ package view;
 
 import java.util.ArrayList;
 
-import dao.DisciplinaDAO;
+import dao.SubjectDAO;
 import domain.Disciplina;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -61,7 +61,7 @@ public class DisciplinaController {
 			d.setNome(txtNome.getText());
 			d.setCargaHoraria(Integer.parseInt(txtCarga.getText()));
 			d.setAtivo(ckAtiva.isSelected());
-			DisciplinaDAO.novaDisciplina(d);
+			SubjectDAO.create(d);
 			d = null;
 			mostraTodasDisciplinas();
 			limpaTela();
@@ -71,7 +71,7 @@ public class DisciplinaController {
 			altera.setNome(txtNome.getText());
 			altera.setCargaHoraria(Integer.parseInt(txtCarga.getText()));
 			altera.setAtivo(ckAtiva.isSelected());
-			DisciplinaDAO.alteraDisciplina(altera);
+			SubjectDAO.update(altera);
 			d = null;
 			mostraTodasDisciplinas();
 			limpaTela();
@@ -93,7 +93,7 @@ public class DisciplinaController {
 
 	@FXML
 	void filtrar() {
-		listaDisciplinas = DisciplinaDAO.filtra(txtFiltrar.getText());
+		listaDisciplinas = SubjectDAO.filter(txtFiltrar.getText());
 		tbl.setItems(FXCollections.observableArrayList(listaDisciplinas));
 
 	}
@@ -105,7 +105,7 @@ public class DisciplinaController {
 	}
 
 	private void mostraTodasDisciplinas() {
-		listaDisciplinas = DisciplinaDAO.listaTodas();
+		listaDisciplinas = SubjectDAO.all();
 		tbl.setItems(FXCollections.observableArrayList(listaDisciplinas));
 	}
 

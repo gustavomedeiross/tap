@@ -15,7 +15,8 @@ import javafx.scene.control.TabPane;
 
 public class PrincipalController {
 	 @FXML
-	 private Label lblData;
+	 private
+	 Label lblData;
 
 	 
 	 public void initialize() {

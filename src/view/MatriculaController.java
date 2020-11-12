@@ -2,16 +2,12 @@ package view;
 
 import java.util.ArrayList;
 
-import dao.DisciplinaDAO;
-import dao.MatriculaDAO;
-import dao.PessoaDAO;
+import dao.SubjectDAO;
+import dao.EnrollmentDAO;
+import dao.PersonDAO;
 import domain.Disciplina;
 import domain.Matricula;
 import domain.Pessoa;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -36,8 +32,8 @@ public class MatriculaController {
 
 
 	public void initialize() {
-		cbDisciplinas.setItems(FXCollections.observableArrayList(DisciplinaDAO.listaTodas(true)));
-		cbAlunos.setItems(FXCollections.observableArrayList(PessoaDAO.listaTodas("A", true)));
+		cbDisciplinas.setItems(FXCollections.observableArrayList(SubjectDAO.all(true)));
+		cbAlunos.setItems(FXCollections.observableArrayList(PersonDAO.all("A", true)));
 		colNome.setCellValueFactory(cellData -> cellData.getValue().getDisciplina().nomeProperty());
 		colSemestre.setCellValueFactory(cellData -> cellData.getValue().semestreProperty());
 		eventoChangeAluno();
@@ -55,7 +51,7 @@ public class MatriculaController {
 			m.setAluno(a);
 			m.setDisciplina(d);
 			m.setSemestre(semestre);
-			MatriculaDAO.novaMatricula(m);
+			EnrollmentDAO.create(m);
 			cbDisciplinas.getSelectionModel().select(-1);
 			selecionaAluno();
 		}else {
@@ -68,7 +64,7 @@ public class MatriculaController {
 		Matricula m =  tbl.getSelectionModel().getSelectedItem();
 
 		if(Mensagens.msgOkCancel("exclus�o", "tem certeza que deseja excluir?")==ButtonType.OK) {
-			MatriculaDAO.excluirMatricula(m);
+			EnrollmentDAO.delete(m);
 			tbl.getItems().remove(m);
 		}
 	}
@@ -77,14 +73,14 @@ public class MatriculaController {
 	public void buscaMateriasPorAlunoESemestre() {
 		Pessoa aluno = cbAlunos.getSelectionModel().getSelectedItem();
 		String semestre = txtSemestre.getText();
-		ArrayList<Matricula> matriculas = MatriculaDAO.buscaPorAlunoESemestre(aluno, semestre);
+		ArrayList<Matricula> matriculas = EnrollmentDAO.findByStudentAndSemester(aluno, semestre);
 		tbl.setItems(FXCollections.observableArrayList(matriculas));
 	}
 
 	@FXML 
 	public void selecionaAluno() {
 		Pessoa aluno = cbAlunos.getSelectionModel().getSelectedItem();
-		ArrayList<Matricula> matriculas = MatriculaDAO.buscaPorAluno(aluno);
+		ArrayList<Matricula> matriculas = EnrollmentDAO.findByStudent(aluno);
 		tbl.setItems(FXCollections.observableArrayList(matriculas));
 	}
 

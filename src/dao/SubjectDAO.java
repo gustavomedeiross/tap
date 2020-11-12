@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import domain.Disciplina;
 import util.Conexao;
 
-public class DisciplinaDAO {
+public class SubjectDAO {
 
-	public static void novaDisciplina(Disciplina d) {
+	public static void create(Disciplina d) {
 		Connection c = Conexao.conn();
 
 		try {
@@ -29,7 +29,7 @@ public class DisciplinaDAO {
 	}
 
 
-	public static void alteraDisciplina(Disciplina d) {
+	public static void update(Disciplina d) {
 		Connection c = Conexao.conn();
 
 		try {
@@ -46,16 +46,17 @@ public class DisciplinaDAO {
 		}
 
 	}
-	public static ArrayList<Disciplina> listaTodas(){
-		return listaTodas(false);
+
+	public static ArrayList<Disciplina> all(){
+		return all(false);
 	}
 
-	public static ArrayList<Disciplina> listaTodas(boolean ativo){
+	public static ArrayList<Disciplina> all(boolean isActive){
 		Connection c = Conexao.conn();
 		ArrayList<Disciplina> lista = new ArrayList<Disciplina>();
 		try {
 			String sql = "select * from disciplina order by nome";
-			if( ativo) 
+			if( isActive)
 				sql = "select * from disciplina where ativo = 'S' order by nome";
 
 			PreparedStatement ps = c.prepareStatement(sql);
@@ -65,7 +66,7 @@ public class DisciplinaDAO {
 				d.setId(rs.getInt("id"));
 				d.setNome(rs.getString("nome"));
 				d.setCargaHoraria(rs.getInt("carga_horaria"));
-				d.setAtivo(rs.getString("ativo").equals("S")?true:false);
+				d.setAtivo(rs.getString("isActive").equals("S")?true:false);
 				lista.add(d);
 			}
 			c.close();
@@ -76,7 +77,7 @@ public class DisciplinaDAO {
 		return lista;
 	}
 
-	public static ArrayList<Disciplina> filtra(String filtro){
+	public static ArrayList<Disciplina> filter(String filtro) {
 		Connection c = Conexao.conn();
 		ArrayList<Disciplina> lista = new ArrayList<Disciplina>();
 		try {

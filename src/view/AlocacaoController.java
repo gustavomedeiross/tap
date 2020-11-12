@@ -2,9 +2,9 @@ package view;
 
 import java.util.ArrayList;
 
-import dao.AlocacaoDAO;
-import dao.DisciplinaDAO;
-import dao.PessoaDAO;
+import dao.AllocationDAO;
+import dao.SubjectDAO;
+import dao.PersonDAO;
 import domain.Disciplina;
 import domain.Pessoa;
 import javafx.beans.value.ChangeListener;
@@ -31,8 +31,8 @@ public class AlocacaoController {
 	@FXML TableColumn<Disciplina, Number> colCarga;
 
 	public void initialize() {
-		cbDisciplinas.setItems(FXCollections.observableArrayList(DisciplinaDAO.listaTodas(true)));
-		cbProfessores.setItems(FXCollections.observableArrayList(PessoaDAO.listaTodas("P", true)));
+		cbDisciplinas.setItems(FXCollections.observableArrayList(SubjectDAO.all(true)));
+		cbProfessores.setItems(FXCollections.observableArrayList(PersonDAO.all("P", true)));
 		colNome.setCellValueFactory(cellData -> cellData.getValue().nomeProperty());
 		colCarga.setCellValueFactory(cellData -> cellData.getValue().cargaHorariaProperty());
 		eventoChangeProfessor();
@@ -44,7 +44,7 @@ public class AlocacaoController {
 		Disciplina d = tbl.getSelectionModel().getSelectedItem();
 		if(p!= null && d!=null) {
 			if(Mensagens.msgOkCancel("exclus�o", "tem certeza que deseja excluir?")==ButtonType.OK) {
-				AlocacaoDAO.excluirAlocacao(p, d);
+				AllocationDAO.delete(p, d);
 				selecionaProfessor();
 			}
 
@@ -56,7 +56,7 @@ public class AlocacaoController {
 		Pessoa p = cbProfessores.getSelectionModel().getSelectedItem();
 		Disciplina d = cbDisciplinas.getSelectionModel().getSelectedItem();
 		if(p!= null && d!=null) {
-			AlocacaoDAO.novaAlocacao(p, d);
+			AllocationDAO.create(p, d);
 			selecionaProfessor();
 			cbDisciplinas.getSelectionModel().select(-1);
 		} else {
@@ -69,7 +69,7 @@ public class AlocacaoController {
 	public void selecionaProfessor() {
 
 		Pessoa professor = cbProfessores.getSelectionModel().getSelectedItem();
-		ArrayList<Disciplina> disciplinas = AlocacaoDAO.buscaPorProfessor(professor);
+		ArrayList<Disciplina> disciplinas = AllocationDAO.findByTeacher(professor);
 		tbl.setItems(FXCollections.observableArrayList(disciplinas));
 	}
 

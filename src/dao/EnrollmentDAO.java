@@ -5,14 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import domain.Aluno;
 import domain.Disciplina;
 import domain.Matricula;
 import domain.Pessoa;
 import util.Conexao;
 
-public class MatriculaDAO {
-	public static void novaMatricula(Matricula matricula) {
+public class EnrollmentDAO {
+	public static void create(Matricula matricula) {
 		Connection c = Conexao.conn();
 
 		try {
@@ -28,7 +27,8 @@ public class MatriculaDAO {
 		}
 
 	}
-	public static void excluirMatricula(Matricula m) {
+
+	public static void delete(Matricula m) {
 		Connection c = Conexao.conn();
 
 		try {
@@ -44,7 +44,7 @@ public class MatriculaDAO {
 		}
 	}
 
-	public static ArrayList<Matricula> buscaPorAluno(Pessoa p){
+	public static ArrayList<Matricula> findByStudent(Pessoa p){
 		ArrayList<Matricula> lista = new ArrayList<Matricula>();
 		Connection c = Conexao.conn();
 
@@ -58,7 +58,7 @@ public class MatriculaDAO {
 			    Matricula m = new Matricula();
 
 				int idDisc = rs.getInt("id_disciplina");
-				Disciplina d = DisciplinaDAO.buscaPorId(idDisc, true);
+				Disciplina d = SubjectDAO.buscaPorId(idDisc, true);
 
 				m.setId(rs.getInt("id"));
 				m.setDisciplina(d);
@@ -73,7 +73,7 @@ public class MatriculaDAO {
 		return lista;
 	}
 
-	public static ArrayList<Matricula> buscaPorAlunoESemestre(Pessoa p, String semestre){
+	public static ArrayList<Matricula> findByStudentAndSemester(Pessoa p, String semestre){
 		ArrayList<Matricula> lista = new ArrayList<Matricula>();
 		Connection c = Conexao.conn();
 
@@ -88,7 +88,7 @@ public class MatriculaDAO {
 				Matricula m = new Matricula();
 
 				int idDisc = rs.getInt("id_disciplina");
-				Disciplina d = DisciplinaDAO.buscaPorId(idDisc, true);
+				Disciplina d = SubjectDAO.buscaPorId(idDisc, true);
 
 				m.setId(rs.getInt("id"));
 				m.setDisciplina(d);

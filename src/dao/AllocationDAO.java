@@ -9,9 +9,9 @@ import domain.Disciplina;
 import domain.Pessoa;
 import util.Conexao;
 
-public class AlocacaoDAO {
+public class AllocationDAO {
 	
-	public static void novaAlocacao(Pessoa p,Disciplina d) {
+	public static void create(Pessoa p, Disciplina d) {
 		Connection c = Conexao.conn();
 
 		try {
@@ -27,7 +27,8 @@ public class AlocacaoDAO {
 		}
 
 	}
-	public static void excluirAlocacao(Pessoa p,Disciplina d) {
+
+	public static void delete(Pessoa p, Disciplina d) {
 		Connection c = Conexao.conn();
 
 		try {
@@ -44,7 +45,7 @@ public class AlocacaoDAO {
 
 	}
 	
-	public static ArrayList<Disciplina> buscaPorProfessor(Pessoa p){
+	public static ArrayList<Disciplina> findByTeacher(Pessoa p){
 		ArrayList<Disciplina> lista = new ArrayList<Disciplina>();
 		Connection c = Conexao.conn();
 		try {
@@ -54,7 +55,7 @@ public class AlocacaoDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				int idDisc = rs.getInt("id_disciplina");
-				lista.add(DisciplinaDAO.buscaPorId(idDisc, true));
+				lista.add(SubjectDAO.buscaPorId(idDisc, true));
 				
 			}
 		} catch (Exception e) {

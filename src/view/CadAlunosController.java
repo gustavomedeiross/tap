@@ -2,7 +2,7 @@ package view;
 
 import java.util.ArrayList;
 
-import dao.PessoaDAO;
+import dao.PersonDAO;
 import domain.Aluno;
 import domain.Pessoa;
 import javafx.collections.FXCollections;
@@ -48,7 +48,7 @@ public class CadAlunosController {
 			a.setEmail(txtEmail.getText());
 			a.setTelefone(txtTelefone.getText());
 			a.setAtivo(ckAtivo.isSelected());
-			PessoaDAO.novaPessoa(a);
+			PersonDAO.create(a);
 			a = null;
 			mostraTodsAlunos();;
 		}else {
@@ -61,7 +61,7 @@ public class CadAlunosController {
 			altera.setTelefone(txtTelefone.getText());
 			a.setNascimento(txtNascimento.getPromptText());
 			altera.setAtivo(ckAtivo.isSelected());
-			PessoaDAO.alteraPessoa(altera);
+			PersonDAO.update(altera);
 			a = null;
 			mostraTodsAlunos();
 		}
@@ -90,13 +90,13 @@ public class CadAlunosController {
 	}
 
 	private void mostraTodsAlunos() {
-		listaAlunos = PessoaDAO.listaTodas("A");
+		listaAlunos = PersonDAO.all("A");
 		tbl.setItems(FXCollections.observableArrayList(listaAlunos));
 	}
 
 	@FXML
 	public void filtrar() {
-		listaAlunos = PessoaDAO.filtra("A",txtFiltro.getText());
+		listaAlunos = PersonDAO.filter("A",txtFiltro.getText());
 		tbl.setItems(FXCollections.observableArrayList(listaAlunos));
 	}
 
