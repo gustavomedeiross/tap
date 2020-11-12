@@ -3,10 +3,10 @@ package domain;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class Alocacao {
+public class Allocation {
 	private IntegerProperty id = new SimpleIntegerProperty(0);
-	private Pessoa professor;
-	private Disciplina disciplina;
+	private Person teacher;
+	private Subject subject;
 	
 	public final IntegerProperty idProperty() {
 		return this.id;
@@ -20,21 +20,19 @@ public class Alocacao {
 		this.idProperty().set(id);
 	}
 
-	public Pessoa getProfessor() {
-		return professor;
+	public Person getTeacher() {
+		return teacher;
 	}
 
-	public void setProfessor(Pessoa professor) {
-		this.professor = professor;
+	public void setTeacher(Person teacher) {
+		this.teacher = teacher;
 	}
 
-	public Disciplina getDisciplina() {
-		return disciplina;
+	public Subject getSubject() {
+		return subject;
 	}
 
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
-	
-	
 }

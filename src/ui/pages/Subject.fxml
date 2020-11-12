@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DisciplinaController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.SubjectController">
    <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -28,7 +28,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="txtNome" alignment="CENTER" prefHeight="27.0" prefWidth="191.0">
+                        <TextField fx:id="nameTextField" alignment="CENTER" prefHeight="27.0" prefWidth="191.0">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -48,7 +48,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="txtCarga" prefHeight="27.0" prefWidth="107.0">
+                        <TextField fx:id="workloadTextField" prefHeight="27.0" prefWidth="107.0">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -60,7 +60,7 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="48.0" prefHeight="38.0" prefWidth="818.0">
                      <children>
-                        <CheckBox fx:id="ckAtiva" mnemonicParsing="false" text="Ativo">
+                        <CheckBox fx:id="isActiveCheckBox" mnemonicParsing="false" text="Ativo">
                            <HBox.margin>
                               <Insets bottom="10.0" left="50.0" right="10.0" top="10.0" />
                            </HBox.margin>
@@ -69,12 +69,12 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="86.0" prefHeight="38.0" prefWidth="818.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#Gravar" prefHeight="25.0" prefWidth="82.0" text="Gravar">
+                        <Button mnemonicParsing="false" onAction="#store" prefHeight="25.0" prefWidth="82.0" text="Gravar">
                            <HBox.margin>
                               <Insets bottom="10.0" left="50.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#Excluir" prefHeight="25.0" prefWidth="84.0" text="Excluir">
+                        <Button mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="84.0" text="Excluir">
                            <HBox.margin>
                               <Insets bottom="10.0" left="50.0" top="10.0" />
                            </HBox.margin>
@@ -91,7 +91,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="txtFiltrar" alignment="CENTER" onKeyReleased="#filtrar" prefHeight="27.0" prefWidth="354.0">
+                        <TextField fx:id="filterTextField" alignment="CENTER" onKeyReleased="#filter" prefHeight="27.0" prefWidth="354.0">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
@@ -101,11 +101,11 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <TableView fx:id="tbl" onMouseClicked="#clicouTbl" prefHeight="280.0" prefWidth="818.0">
+                  <TableView fx:id="tableView" onMouseClicked="#selectSubject" prefHeight="280.0" prefWidth="818.0">
                     <columns>
-                      <TableColumn fx:id="colNome" prefWidth="430.0" text="Nome" />
-                      <TableColumn fx:id="colCarga" prefWidth="202.0" text="Carga Horária" />
-                        <TableColumn fx:id="colAtiva" prefWidth="185.0" text="Ativa" />
+                      <TableColumn fx:id="nameTableColumn" prefWidth="430.0" text="Nome" />
+                      <TableColumn fx:id="workloadTableColumn" prefWidth="202.0" text="Carga Horária" />
+                        <TableColumn fx:id="isActiveTableColumn" prefWidth="185.0" text="Ativa" />
                     </columns>
                   </TableView>
                </children>

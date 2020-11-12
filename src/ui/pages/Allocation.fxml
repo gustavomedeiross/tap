@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AlocacaoController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.AllocationController">
    <children>
       <VBox layoutX="-38.0" layoutY="-15.0" prefHeight="320.0" prefWidth="471.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="9.0" prefWidth="471.0">
                <children>
                   <Label text="Professor" />
-                  <ComboBox fx:id="cbProfessores" prefHeight="25.0" prefWidth="248.0">
+                  <ComboBox fx:id="teacherComboBox" prefHeight="25.0" prefWidth="248.0">
                      <HBox.margin>
                         <Insets bottom="5.0" left="7.0" />
                      </HBox.margin>
@@ -30,12 +30,12 @@
             <HBox layoutX="10.0" layoutY="10.0">
                <children>
                   <Label text="Disciplina" />
-                  <ComboBox fx:id="cbDisciplinas" prefHeight="25.0" prefWidth="250.0">
+                  <ComboBox fx:id="subjectComboBox" prefHeight="25.0" prefWidth="250.0">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
                   </ComboBox>
-                  <Button mnemonicParsing="false" onAction="#incluiDisciplina" text="Adicionar">
+                  <Button mnemonicParsing="false" onAction="#store" text="Adicionar">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
@@ -45,10 +45,10 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="tbl" onMouseClicked="#excluiAlocacao" prefHeight="245.0" prefWidth="379.0">
+            <TableView fx:id="tableView" onMouseClicked="#destroy" prefHeight="245.0" prefWidth="379.0">
               <columns>
-                <TableColumn fx:id="colNome" prefWidth="290.0" text="nome" />
-                <TableColumn fx:id="colCarga" maxWidth="229.0" minWidth="100.0" prefWidth="179.0" text="carga horaria" />
+                <TableColumn fx:id="subjectTableColumn" prefWidth="290.0" text="nome" />
+                <TableColumn fx:id="workloadTableColumn" maxWidth="229.0" minWidth="100.0" prefWidth="179.0" text="carga horaria" />
               </columns>
             </TableView>
          </children>

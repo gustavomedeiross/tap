@@ -13,16 +13,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CadProfessorController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.StudentController">
    <children>
-      <VBox nodeOrientation="LEFT_TO_RIGHT">
+      <VBox layoutX="154.0" layoutY="132.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="31.0" prefWidth="536.0">
+            <HBox>
                <children>
-                  <Label text="nome: " />
-                  <TextField fx:id="txtNome" prefHeight="25.0" prefWidth="310.0">
+                  <Label text="Nome: ">
                      <HBox.margin>
-                        <Insets left="45.0" />
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="nameTextField">
+                     <HBox.margin>
+                        <Insets left="36.0" />
                      </HBox.margin>
                   </TextField>
                </children>
@@ -32,8 +36,16 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="76.0" text="Nascimento: " />
-                  <TextField fx:id="txtNascimento" prefHeight="25.0" prefWidth="112.0" />
+                  <Label alignment="CENTER" text="Nascimento: ">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="birthDateTextField" prefHeight="25.0" prefWidth="112.0">
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                  </TextField>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -41,8 +53,12 @@
             </HBox>
             <HBox>
                <children>
-                  <Label text="Sexo: " />
-                  <RadioButton fx:id="rdMasc" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Masculino">
+                  <Label text="Sexo: ">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <RadioButton fx:id="maleRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Masculino">
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
@@ -50,7 +66,7 @@
                         <ToggleGroup fx:id="tgSexo" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="rdFemi" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Feminino" toggleGroup="$tgSexo">
+                  <RadioButton fx:id="femaleRadioButton" mnemonicParsing="false" prefHeight="17.0" prefWidth="82.0" text="Feminino" toggleGroup="$tgSexo">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -62,10 +78,14 @@
             </HBox>
             <HBox>
                <children>
-                  <Label text="E-mail: " />
-                  <TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="318.0">
+                  <Label text="E-mail: ">
                      <HBox.margin>
-                        <Insets left="40.0" />
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="emailTextField" prefHeight="25.0" prefWidth="318.0">
+                     <HBox.margin>
+                        <Insets left="36.0" />
                      </HBox.margin>
                   </TextField>
                </children>
@@ -78,10 +98,14 @@
             </HBox>
             <HBox>
                <children>
-                  <Label text="telefone: " />
-                  <TextField fx:id="txtTelefone" prefHeight="25.0" prefWidth="140.0">
+                  <Label text="telefone: ">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="phoneTextField" prefHeight="25.0" prefWidth="140.0">
+                     <HBox.margin>
+                        <Insets left="25.0" />
                      </HBox.margin>
                   </TextField>
                </children>
@@ -92,14 +116,14 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <CheckBox fx:id="ckAtivo" mnemonicParsing="false" text="Ativo">
+            <CheckBox fx:id="isActiveCheckBox" mnemonicParsing="false" text="Ativo">
                <VBox.margin>
-                  <Insets left="80.0" top="15.0" />
+                  <Insets left="80.0" top="10.0" />
                </VBox.margin>
             </CheckBox>
             <HBox>
                <children>
-                  <Button mnemonicParsing="false" onAction="#gravar" text="gravar">
+                  <Button mnemonicParsing="false" onAction="#store" text="gravar">
                      <HBox.margin>
                         <Insets left="80.0" top="15.0" />
                      </HBox.margin>
@@ -108,8 +132,12 @@
             </HBox>
             <HBox>
                <children>
-                  <Label text="filtro: " />
-                  <TextField fx:id="txtFiltro" prefHeight="25.0" prefWidth="301.0">
+                  <Label text="filtro: ">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="filterTextField" prefHeight="25.0" prefWidth="301.0">
                      <HBox.margin>
                         <Insets left="45.0" />
                      </HBox.margin>
@@ -119,18 +147,15 @@
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets top="10.0" />
+                  <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="tbl" prefHeight="200.0" prefWidth="750.0">
+            <TableView fx:id="tableView" prefHeight="227.0" prefWidth="755.0">
               <columns>
-                <TableColumn fx:id="colNome" prefWidth="233.0" text="Nome" />
-                <TableColumn fx:id="colTelefone" prefWidth="274.0" text="telefone" />
-                  <TableColumn fx:id="colEmail" prefWidth="241.0" text="E-mail" />
+                <TableColumn fx:id="nameTableColumn" prefWidth="265.0" text="Nome" />
+                <TableColumn fx:id="phoneTableColumn" prefWidth="253.0" text="Telefone" />
+                  <TableColumn fx:id="emailTableColumn" prefWidth="236.0" text="E-Mail" />
               </columns>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
             </TableView>
          </children>
       </VBox>

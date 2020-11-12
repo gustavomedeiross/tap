@@ -1,59 +1,51 @@
 package dao;
 
-import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import domain.Disciplina;
-import util.Conexao;
+import domain.Subject;
 
 public class SubjectDAO {
-
-	public static void create(Disciplina d) {
-		Connection c = Conexao.conn();
+	public static void create(Subject d) {
+		java.sql.Connection c = ConnectionWrapper.conn();
 
 		try {
 			String sql = "insert into disciplina (nome , carga_horaria , ativo) values (?,?,?)";
 			PreparedStatement ps = c.prepareStatement(sql);
-			ps.setString(1, d.getNome());
-			ps.setInt(2, d.getCargaHoraria());
-			ps.setString(3, d.isAtivo()?"S":"N");
+			ps.setString(1, d.getName());
+			ps.setInt(2, d.getWorkload());
+			ps.setString(3, d.getIsActive()?"S":"N");
 			ps.executeUpdate();
 			c.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
-
-	public static void update(Disciplina d) {
-		Connection c = Conexao.conn();
-
+	public static void update(Subject d) {
+		java.sql.Connection c = ConnectionWrapper.conn();
 		try {
 			String sql = "update disciplina set nome=?, carga_horaria=?, ativo=? where id=?";
 			PreparedStatement ps = c.prepareStatement(sql);
-			ps.setString(1, d.getNome());
-			ps.setInt(2, d.getCargaHoraria());
-			ps.setString(3, d.isAtivo()?"S":"N");
+			ps.setString(1, d.getName());
+			ps.setInt(2, d.getWorkload());
+			ps.setString(3, d.getIsActive()?"S":"N");
 			ps.setInt(4, d.getId());
 			ps.executeUpdate();
 			c.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	public static ArrayList<Disciplina> all(){
+	public static ArrayList<Subject> all(){
 		return all(false);
 	}
 
-	public static ArrayList<Disciplina> all(boolean isActive){
-		Connection c = Conexao.conn();
-		ArrayList<Disciplina> lista = new ArrayList<Disciplina>();
+	public static ArrayList<Subject> all(boolean isActive){
+		java.sql.Connection c = ConnectionWrapper.conn();
+		ArrayList<Subject> lista = new ArrayList<Subject>();
 		try {
 			String sql = "select * from disciplina order by nome";
 			if( isActive)
@@ -62,11 +54,11 @@ public class SubjectDAO {
 			PreparedStatement ps = c.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				Disciplina d = new Disciplina();
+				Subject d = new Subject();
 				d.setId(rs.getInt("id"));
-				d.setNome(rs.getString("nome"));
-				d.setCargaHoraria(rs.getInt("carga_horaria"));
-				d.setAtivo(rs.getString("isActive").equals("S")?true:false);
+				d.setName(rs.getString("nome"));
+				d.setWorkload(rs.getInt("carga_horaria"));
+				d.setIsActive(rs.getString("isActive").equals("S")?true:false);
 				lista.add(d);
 			}
 			c.close();
@@ -77,50 +69,53 @@ public class SubjectDAO {
 		return lista;
 	}
 
-	public static ArrayList<Disciplina> filter(String filtro) {
-		Connection c = Conexao.conn();
-		ArrayList<Disciplina> lista = new ArrayList<Disciplina>();
+	public static ArrayList<Subject> filter(String filtro) {
+		java.sql.Connection c = ConnectionWrapper.conn();
+		ArrayList<Subject> subjects = new ArrayList<Subject>();
 		try {
 			String sql = "select * from disciplina where nome like "+filtro+" order by nome";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				Disciplina d = new Disciplina();
+				Subject d = new Subject();
 				d.setId(rs.getInt("id"));
-				d.setNome(rs.getString("nome"));
-				d.setCargaHoraria(rs.getInt("carga_horaria"));
-				d.setAtivo(rs.getString("ativo").equals("S")?true:false);
-				lista.add(d);
+				d.setName(rs.getString("nome"));
+				d.setWorkload(rs.getInt("carga_horaria"));
+				d.setIsActive(rs.getString("ativo").equals("S"));
+				subjects.add(d);
 			}
 			c.close();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return lista;
+		return subjects;
 	}
-	public static Disciplina buscaPorId(int id, boolean ativo){
-		Connection c = Conexao.conn();
-		Disciplina d = new Disciplina();
+
+	public static Subject findById(int id, boolean isActive) {
+		java.sql.Connection connection = ConnectionWrapper.conn();
+		Subject subject = new Subject();
 		try {
-			String sql = "select * from disciplina where id =?";
-			if(ativo)
-				 sql = "select * from disciplina where id =?and ativo = 'S'";
-			PreparedStatement ps = c.prepareStatement(sql);
+		    String sql;
+
+			if (isActive) {
+				sql = "select * from disciplina where id =?and ativo = 'S'";
+			} else {
+				sql = "select * from disciplina where id =?";
+			}
+
+			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
-				d.setId(rs.getInt("id"));
-				d.setNome(rs.getString("nome"));
-				d.setCargaHoraria(rs.getInt("carga_horaria"));
-				d.setAtivo(rs.getString("ativo").equals("S")?true:false);
+				subject.setId(rs.getInt("id"));
+				subject.setName(rs.getString("nome"));
+				subject.setWorkload(rs.getInt("carga_horaria"));
+				subject.setIsActive(rs.getString("isActive").equals("S"));
 			}
-			c.close();
-
+			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return d;
+		return subject;
 	}
-
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane prefHeight="206.0" prefWidth="310.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="view.JanelaPopupController">
+<BorderPane prefHeight="206.0" prefWidth="310.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="ui.controllers.AlertController">
    <top>
       <Label text="Janela POPUP" BorderPane.alignment="CENTER">
          <font>
@@ -25,7 +25,7 @@
       </ImageView>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#fecharJanela" text="Fechar" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#closeWindow" text="Fechar" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>

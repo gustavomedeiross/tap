@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MatriculaController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.EnrollmentController">
    <children>
       <VBox layoutY="-2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -22,7 +22,7 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="cbAlunos" prefHeight="25.0" prefWidth="242.0">
+                  <ComboBox fx:id="studentComboBox" prefHeight="25.0" prefWidth="242.0">
                      <HBox.margin>
                         <Insets left="29.0" />
                      </HBox.margin>
@@ -39,7 +39,7 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="cbDisciplinas" prefHeight="25.0" prefWidth="242.0">
+                  <ComboBox fx:id="subjectComboBox" prefHeight="25.0" prefWidth="242.0">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
@@ -56,22 +56,22 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtSemestre" prefHeight="25.0" prefWidth="243.0">
+                  <TextField fx:id="semesterTextField" prefHeight="25.0" prefWidth="243.0">
                      <HBox.margin>
                         <Insets left="8.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" onAction="#incluiMatricula" text="Adicionar">
+                  <Button mnemonicParsing="false" onAction="#store" text="Adicionar">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#buscaMateriasPorAlunoESemestre" text="Buscar">
+                  <Button mnemonicParsing="false" onAction="#findEnrollmentsByStudentAndSemester" text="Buscar">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#excluiMatricula" text="Excluir">
+                  <Button fx:id="destroyButton" mnemonicParsing="false" onAction="#destroy" text="Excluir">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
@@ -81,10 +81,10 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="tbl" prefHeight="234.0" prefWidth="551.0">
+            <TableView fx:id="tableView" prefHeight="234.0" prefWidth="551.0">
               <columns>
-                <TableColumn fx:id="colNome" prefWidth="296.0" text="Nome" />
-                <TableColumn fx:id="colSemestre" prefWidth="253.0" text="Semestre" />
+                <TableColumn fx:id="nameTableColumn" prefWidth="296.0" text="Nome" />
+                <TableColumn fx:id="semesterTableColumn" prefWidth="253.0" text="Semestre" />
               </columns>
             </TableView>
          </children>
