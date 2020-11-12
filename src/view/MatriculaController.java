@@ -14,11 +14,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import util.Mensagens;
 
 public class MatriculaController {
@@ -35,6 +31,8 @@ public class MatriculaController {
 
 	@FXML TableColumn<Matricula, String> colSemestre;
 
+	@FXML Button btnExcluir;
+
 
 
 	public void initialize() {
@@ -43,6 +41,7 @@ public class MatriculaController {
 		colNome.setCellValueFactory(cellData -> cellData.getValue().getDisciplina().nomeProperty());
 		colSemestre.setCellValueFactory(cellData -> cellData.getValue().semestreProperty());
 		eventoChangeAluno();
+		btnExcluir.disableProperty().bind(tbl.getSelectionModel().selectedItemProperty().isNull());
 	}
 
 	@FXML
@@ -66,14 +65,11 @@ public class MatriculaController {
 
 	@FXML
 	public void excluiMatricula() {
-		Pessoa a = cbAlunos.getSelectionModel().getSelectedItem();
-		Disciplina d = tbl.getSelectionModel().getSelectedItem().getDisciplina();
-		if(a!= null && d!=null) {
-			if(Mensagens.msgOkCancel("exclus�o", "tem certeza que deseja excluir?")==ButtonType.OK) {
-				MatriculaDAO.excluirMatricula(a, d);
+		Matricula m =  tbl.getSelectionModel().getSelectedItem();
 
-			}
-
+		if(Mensagens.msgOkCancel("exclus�o", "tem certeza que deseja excluir?")==ButtonType.OK) {
+			MatriculaDAO.excluirMatricula(m);
+			tbl.getItems().remove(m);
 		}
 	}
 

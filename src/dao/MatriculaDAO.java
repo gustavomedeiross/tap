@@ -28,14 +28,14 @@ public class MatriculaDAO {
 		}
 
 	}
-	public static void excluirMatricula(Pessoa a,Disciplina d) {
+	public static void excluirMatricula(Matricula m) {
 		Connection c = Conexao.conn();
 
 		try {
 			String sql = "delete from matricula where id_aluno=? and id_disciplina=?";
 			PreparedStatement ps = c.prepareStatement(sql);
-			ps.setInt(1, a.getId());
-			ps.setInt(2, d.getId());
+			ps.setInt(1, m.getAluno().getId());
+			ps.setInt(2, m.getDisciplina().getId());
 
 			ps.executeUpdate();
 			c.close();
@@ -60,6 +60,7 @@ public class MatriculaDAO {
 				int idDisc = rs.getInt("id_disciplina");
 				Disciplina d = DisciplinaDAO.buscaPorId(idDisc, true);
 
+				m.setId(rs.getInt("id"));
 				m.setDisciplina(d);
 				m.setAluno(p);
 				m.setSemestre(rs.getString("semestre"));
@@ -89,6 +90,7 @@ public class MatriculaDAO {
 				int idDisc = rs.getInt("id_disciplina");
 				Disciplina d = DisciplinaDAO.buscaPorId(idDisc, true);
 
+				m.setId(rs.getInt("id"));
 				m.setDisciplina(d);
 				m.setAluno(p);
 				m.setSemestre(rs.getString("semestre"));

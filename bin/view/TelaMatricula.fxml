@@ -71,6 +71,11 @@
                         <Insets left="5.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#excluiMatricula" text="Excluir">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" />
