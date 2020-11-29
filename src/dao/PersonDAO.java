@@ -73,7 +73,7 @@ public class PersonDAO {
 				p.setPhone(rs.getString("telefone"));
 				p.setBirthDate(rs.getString("nascimento"));
 				p.setType(type);
-				p.setIsActive(rs.getString("isActive").equals("S")?true:false);
+				p.setIsActive(rs.getString("ativo").equals("S"));
 				lista.add(p);
 			}
 			c.close();

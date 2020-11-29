@@ -2,49 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd21d3d1-7421-44f5-928d-f06521101ae7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/ConnectionWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/Enrollment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/Teacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/components/PopupAlert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/controllers/AllocationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/controllers/EnrollmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/controllers/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/controllers/StudentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/controllers/SubjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/controllers/TeacherController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/AllocationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AllocationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/EnrollmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/EnrollmentDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PersonDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/SubjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/SubjectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Alocacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Allocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Aluno.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Disciplina.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Matricula.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Pessoa.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Professor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Conexao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Mensagens.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Alocacao.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Allocation.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AlocacaoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CadAlunosController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CadProfessorController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Disciplina.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Subject.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/DisciplinaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/JanelaPopup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/components/PopupWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/JanelaPopupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/AlertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MatriculaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Default.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/PrincipalController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/TelaAlunos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Student.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/TelaMatricula.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Enrollment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/TelaProfessores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Teacher.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/MainController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +28,17 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="aula" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="aula" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="aula" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
     </expand>
     <select />

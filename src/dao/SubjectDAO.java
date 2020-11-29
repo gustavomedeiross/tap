@@ -58,7 +58,7 @@ public class SubjectDAO {
 				d.setId(rs.getInt("id"));
 				d.setName(rs.getString("nome"));
 				d.setWorkload(rs.getInt("carga_horaria"));
-				d.setIsActive(rs.getString("isActive").equals("S")?true:false);
+				d.setIsActive(rs.getString("ativo").equals("S"));
 				lista.add(d);
 			}
 			c.close();
@@ -110,7 +110,7 @@ public class SubjectDAO {
 				subject.setId(rs.getInt("id"));
 				subject.setName(rs.getString("nome"));
 				subject.setWorkload(rs.getInt("carga_horaria"));
-				subject.setIsActive(rs.getString("isActive").equals("S"));
+				subject.setIsActive(rs.getString("ativo").equals("S"));
 			}
 			connection.close();
 		} catch (Exception e) {

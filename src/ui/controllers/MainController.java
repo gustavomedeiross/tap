@@ -28,27 +28,27 @@ public class MainController {
 
 	@FXML
 	void subjectPage() {
-		openTab("Disciplinas", "Subject.fxml");
+		openTab("Disciplinas", "/ui/pages/Subject.fxml");
 	}
 
 	@FXML
 	void teacherPage() {
-		openTab("Professores", "Teacher.fxml");
+		openTab("Professores", "/ui/pages/Teacher.fxml");
 	}
 
 	@FXML
 	void allocationPage() {
-		openTab("Alocação", "Allocation.fxml");
+		openTab("Alocação", "/ui/pages/Allocation.fxml");
 	}
 
 	@FXML
 	void studentPage() {
-		openTab("Alunos", "Student.fxml");
+		openTab("Alunos", "/ui/pages/Student.fxml");
 	}
 
 	@FXML
 	void enrollmentPage() {
-		openTab("matrícula", "Enrollment.fxml");
+		openTab("matrícula", "/ui/pages/Enrollment.fxml");
 	}
 
 	private void openTab(String title, String path) {
