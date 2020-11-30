@@ -12,6 +12,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import ui.components.PopupAlert;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class GradeHistoryController {
@@ -161,6 +164,66 @@ public class GradeHistoryController {
         if(PopupAlert.okOrCancel("exclusão", "tem certeza que deseja excluir?") == ButtonType.OK) {
             GradeHistoryDAO.delete(gradeHistory);
             tableView.getItems().remove(gradeHistory);
+        }
+    }
+
+    @FXML
+    public void exportHTML() {
+        if (tableView.getItems().size() > 0) {
+            String html = "<html>" +
+                    "<table>" +
+                    "<thead><tr><th>Disciplina</th><th>Carga Horária</th><th>Nota</th><th>Situação</th><tr><thead/>";
+
+            for (GradeHistory gh : tableView.getItems()) {
+
+                String situation = gh.getGrade() >= 7 ? "Aprovado(a)" : "Reprovado(a)";
+
+                html += "<tr>";
+                html += "<td>" + gh.getSubject().getName() + "</td>";
+                html += "<td>" + gh.getSubject().getWorkload() + "</td>";
+                html += "<td>" + gh.getGrade() + "</td>";
+                html += "<td>" + situation + "</td>";
+                html += "</tr>";
+            }
+
+            html += "</table>" +
+                    "</html>";
+
+            try {
+                FileWriter fw = new FileWriter(new File("relatorio01.html"));
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.append(html);
+                bw.close();
+                fw.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @FXML
+    public void exportCSV() {
+        if (tableView.getItems().size() > 0) {
+            String csv = "Disciplina,Carga Horária,Nota,Situação\n";
+
+            for (GradeHistory gh : tableView.getItems()) {
+                String situation = gh.getGrade() >= 7 ? "Aprovado(a)" : "Reprovado(a)";
+
+                csv += gh.getSubject().getName() + "," +
+                        gh.getSubject().getWorkload() + "," +
+                        gh.getGrade() + "," +
+                        situation + "\n";
+            }
+
+            try {
+                FileWriter fw = new FileWriter(new File("relatorio01.csv"));
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.append(csv);
+                bw.close();
+                fw.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

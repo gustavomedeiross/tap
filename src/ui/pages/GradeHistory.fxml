@@ -104,6 +104,23 @@
                   <TableColumn fx:id="gradeTableColumn" prefWidth="253.0" text="Grade" />
                </columns>
             </TableView>
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#exportHTML" text="Exportar Relatório HTML">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#exportCSV" text="Exportar Relatório CSV">
+                     <HBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </HBox>
          </children>
       </VBox>
    </children>

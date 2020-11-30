@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd21d3d1-7421-44f5-928d-f06521101ae7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/GradeHistoryDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/GradeHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/controllers/GradeHistoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/pages/GradeHistory.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relatorio01.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banco/aula.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/banco/aula.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/AllocationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AllocationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/EnrollmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/EnrollmentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/pages/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/controllers/GradeHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/GradeHistoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/pages/GradeHistory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/GradeHistory.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +126,7 @@
       <workItem from="1605136462281" duration="9085000" />
       <workItem from="1605188183325" duration="4543000" />
       <workItem from="1605222460380" duration="2537000" />
+      <workItem from="1606769885782" duration="2200000" />
     </task>
     <servers />
   </component>
