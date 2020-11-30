@@ -64,14 +64,14 @@ public class EnrollmentDAO {
 				m.setSemester(rs.getString("semestre"));
 				lista.add(m);
 			}
-
+			c.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return lista;
 	}
 
-	public static ArrayList<Enrollment> findByStudentAndSemester(Person p, String semestre){
+	public static ArrayList<Enrollment> findByStudentAndSemester(Person p, String semestre) {
 		ArrayList<Enrollment> lista = new ArrayList<Enrollment>();
 		java.sql.Connection c = ConnectionWrapper.conn();
 
@@ -94,10 +94,31 @@ public class EnrollmentDAO {
 				m.setSemester(rs.getString("semestre"));
 				lista.add(m);
 			}
-
+			c.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return lista;
+	}
+
+	public static boolean studentHasEnrollment(Person person, Subject subject, String semester) {
+		java.sql.Connection c = ConnectionWrapper.conn();
+		try {
+			String sql = "select * from matricula where id_aluno = ? and id_disciplina = ? and semestre = ?";
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setInt(1, person.getId());
+			ps.setInt(2, subject.getId());
+			ps.setString(3, semester);
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()) {
+				c.close();
+			    return true;
+			}
+			c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

@@ -50,10 +50,11 @@ public class PersonDAO {
 		}
 		
 	}
+
 	public static ArrayList<Person> all(String tipo){
 		return all(tipo,false);
-		
 	}
+
 	public static ArrayList<Person> all(String type, Boolean isActive){
 		java.sql.Connection c = ConnectionWrapper.conn();
 		ArrayList<Person> lista = new ArrayList<Person>();
@@ -77,7 +78,6 @@ public class PersonDAO {
 				lista.add(p);
 			}
 			c.close();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -104,7 +104,6 @@ public class PersonDAO {
 				lista.add(p);
 			}
 			c.close();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -51,6 +51,7 @@ public class AllocationDAO {
 				int idDisc = rs.getInt("id_disciplina");
 				subjects.add(SubjectDAO.findById(idDisc, true));
 			}
+			c.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
