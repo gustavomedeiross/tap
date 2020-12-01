@@ -76,6 +76,14 @@
                   <Insets left="20.0" right="10.0" top="15.0" />
                </VBox.margin>
             </Button>
+            <Button layoutX="10.0" layoutY="49.0" mnemonicParsing="false" onAction="#reportsPage" prefHeight="39.0" prefWidth="125.0" style="-fx-background-radius: 30; -fx-border-color: red; -fx-border-radius: 30;" text="Relatórios">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" right="10.0" top="15.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
    </left>

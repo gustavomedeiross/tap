@@ -56,6 +56,11 @@ public class MainController {
 		openTab("histórico de notas", "/ui/pages/GradeHistory.fxml");
 	}
 
+	@FXML
+	void reportsPage() {
+		openTab("Relatórios", "/ui/pages/Reports.fxml");
+	}
+
 	private void openTab(String title, String path) {
 		try {
 			Tab tab = openedTab(title);

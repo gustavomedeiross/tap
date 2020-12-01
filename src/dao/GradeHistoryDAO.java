@@ -108,4 +108,47 @@ public class GradeHistoryDAO {
 
         return gradeHistories;
     }
+
+    public static ArrayList<ArrayList<GradeHistory>> getStudentsGradesBySemester(String semester) {
+        ArrayList<ArrayList<GradeHistory>> studentsGradesBySemester = new ArrayList<>();
+
+        for(Person student : PersonDAO.all("A")) {
+            studentsGradesBySemester.add(getGradesByStudentAndSemester(student, semester));
+        }
+
+        return studentsGradesBySemester;
+    }
+
+    public static ArrayList<String> getAllSemestersWhereUserHasEnrollment(Person student) {
+        java.sql.Connection c = ConnectionWrapper.conn();
+        ArrayList<String> semesters = new ArrayList<String>();
+
+        try {
+            String sql = "SELECT DISTINCT semestre FROM historico_notas where id_aluno=? ";
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setInt(1, student.getId());
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                semesters.add(rs.getString("semestre"));
+            }
+            c.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return semesters;
+    }
+
+    public static ArrayList<ArrayList<GradeHistory>> getStudentGradesOnEachSemester(Person student) {
+        ArrayList<ArrayList<GradeHistory>> studentGradesPerSemester = new ArrayList<>();
+
+        System.out.println(getAllSemestersWhereUserHasEnrollment(student));
+
+        for (String semester : getAllSemestersWhereUserHasEnrollment(student)) {
+            studentGradesPerSemester.add(getGradesByStudentAndSemester(student, semester));
+        }
+
+        return studentGradesPerSemester;
+    }
 }

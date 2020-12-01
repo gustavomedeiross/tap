@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd21d3d1-7421-44f5-928d-f06521101ae7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/relatorio01.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relatorio-semestre.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/controllers/ReportsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/pages/Reports.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/controllers/GradeHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/GradeHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/pages/GradeHistory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/GradeHistory.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/banco/aula.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/banco/aula.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/GradeHistoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GradeHistoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/pages/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Main.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +51,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -112,6 +117,26 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@314d06b8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@314d06b8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5aca71db" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -126,7 +151,7 @@
       <workItem from="1605136462281" duration="9085000" />
       <workItem from="1605188183325" duration="4543000" />
       <workItem from="1605222460380" duration="2537000" />
-      <workItem from="1606769885782" duration="2200000" />
+      <workItem from="1606769885782" duration="10503000" />
     </task>
     <servers />
   </component>
