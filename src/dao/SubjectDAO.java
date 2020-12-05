@@ -69,11 +69,11 @@ public class SubjectDAO {
 		return lista;
 	}
 
-	public static ArrayList<Subject> filter(String filtro) {
+	public static ArrayList<Subject> filter(String filter) {
 		java.sql.Connection c = ConnectionWrapper.conn();
 		ArrayList<Subject> subjects = new ArrayList<Subject>();
 		try {
-			String sql = "select * from disciplina where nome like "+filtro+" order by nome";
+			String sql = "select * from disciplina where nome like \"%"+filter+"%\" order by nome";
 			PreparedStatement ps = c.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
@@ -117,5 +117,20 @@ public class SubjectDAO {
 			e.printStackTrace();
 		}
 		return subject;
+	}
+
+	public static void delete(Subject subject) {
+		java.sql.Connection c = ConnectionWrapper.conn();
+
+		try {
+			String sql = "delete from disciplina where id=?";
+			PreparedStatement ps = c.prepareStatement(sql);
+			ps.setInt(1, subject.getId());
+
+			ps.executeUpdate();
+			c.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

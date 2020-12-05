@@ -69,12 +69,12 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="86.0" prefHeight="38.0" prefWidth="818.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#store" prefHeight="25.0" prefWidth="82.0" text="Gravar">
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#store" prefHeight="25.0" prefWidth="82.0" text="Gravar" disable="true">
                            <HBox.margin>
                               <Insets bottom="10.0" left="50.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="84.0" text="Excluir">
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="84.0" text="Excluir" disable="true">
                            <HBox.margin>
                               <Insets bottom="10.0" left="50.0" top="10.0" />
                            </HBox.margin>

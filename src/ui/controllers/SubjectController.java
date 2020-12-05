@@ -2,14 +2,14 @@ package ui.controllers;
 
 import java.util.ArrayList;
 
+import dao.EnrollmentDAO;
 import dao.SubjectDAO;
 import domain.Subject;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import ui.components.PopupAlert;
 
 public class SubjectController {
 	@FXML
@@ -36,6 +36,12 @@ public class SubjectController {
 	@FXML
 	private TableColumn<Subject, Boolean> isActiveTableColumn;
 
+	@FXML
+	private Button saveButton;
+
+	@FXML
+	private Button deleteButton;
+
 	private ArrayList<Subject> subjects;
 	private Subject selectedSubject;
 
@@ -44,18 +50,28 @@ public class SubjectController {
 		nameTableColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 		workloadTableColumn.setCellValueFactory(cellData -> cellData.getValue().workloadProperty());
 		isActiveTableColumn.setCellValueFactory(cellData -> cellData.getValue().isActiveProperty());
+
+		saveButton.disableProperty().bind(Bindings.isEmpty(nameTextField.textProperty())
+				.or(Bindings.isEmpty(workloadTextField.textProperty())));
+
+		deleteButton.disableProperty().bind(tableView.getSelectionModel().selectedItemProperty().isNull());
 		showAllSubjects();
 	}
 
 	@FXML
 	void store() {
+		try {
+			Integer.parseInt(workloadTextField.getText());
+		} catch(NumberFormatException e) {
+			PopupAlert.error("ERRO", "O campo \"Carga Horária\" deve conter apenas números");
+		}
+
 		if(selectedSubject == null) {
 			Subject subject = new Subject();
 			subject.setName(nameTextField.getText());
 			subject.setWorkload(Integer.parseInt(workloadTextField.getText()));
 			subject.setIsActive(isActiveCheckBox.isSelected());
 			SubjectDAO.create(subject);
-			subject = null;
 			showAllSubjects();
 			clearInputs();
 		} else {
@@ -73,7 +89,11 @@ public class SubjectController {
 
 	@FXML
 	void delete() {
-
+		Subject subject = tableView.getSelectionModel().getSelectedItem();
+		if(PopupAlert.okOrCancel("Excluir", "Tem certeza que deseja excluir?") == ButtonType.OK) {
+	    	SubjectDAO.delete(subject);
+			tableView.getItems().remove(subject);
+		}
 	}
 
 	@FXML
