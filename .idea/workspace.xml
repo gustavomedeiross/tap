@@ -4,10 +4,11 @@
     <list default="true" id="cd21d3d1-7421-44f5-928d-f06521101ae7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco/aula.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/banco/aula.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/SubjectDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/SubjectDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/controllers/SubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/SubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/pages/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/pages/Subject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Subject.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/controllers/AllocationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/AllocationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/controllers/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/controllers/TeacherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/pages/Allocation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Allocation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/pages/Teacher.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Teacher.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +151,7 @@
       <workItem from="1605188183325" duration="4543000" />
       <workItem from="1605222460380" duration="2537000" />
       <workItem from="1606769885782" duration="10672000" />
-      <workItem from="1607121373888" duration="3850000" />
+      <workItem from="1607121373888" duration="4624000" />
     </task>
     <servers />
   </component>

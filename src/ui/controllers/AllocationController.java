@@ -8,14 +8,12 @@ import dao.PersonDAO;
 import domain.Allocation;
 import domain.Subject;
 import domain.Person;
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import ui.components.PopupAlert;
 
 
@@ -35,11 +33,18 @@ public class AllocationController {
 	@FXML
 	ComboBox<Subject> subjectComboBox;
 
+	@FXML
+	Button saveButton;
+
 	public void initialize() {
 		subjectComboBox.setItems(FXCollections.observableArrayList(SubjectDAO.all(true)));
 		teacherComboBox.setItems(FXCollections.observableArrayList(PersonDAO.all("P", true)));
 		subjectTableColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 		workloadTableColumn.setCellValueFactory(cellData -> cellData.getValue().workloadProperty());
+
+		saveButton.disableProperty().bind(Bindings.isNull(teacherComboBox.valueProperty())
+				.or(Bindings.isNull(subjectComboBox.valueProperty())));
+
 		changeTeacherEvent();
 	}
 

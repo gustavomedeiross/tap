@@ -123,7 +123,7 @@
             </CheckBox>
             <HBox>
                <children>
-                  <Button mnemonicParsing="false" onAction="#store" text="gravar">
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#store" text="gravar" disable="true">
                      <HBox.margin>
                         <Insets left="80.0" top="15.0" />
                      </HBox.margin>

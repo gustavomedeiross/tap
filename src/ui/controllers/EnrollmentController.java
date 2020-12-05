@@ -8,6 +8,7 @@ import dao.PersonDAO;
 import domain.Subject;
 import domain.Enrollment;
 import domain.Person;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -32,6 +33,10 @@ public class EnrollmentController {
 	@FXML
 	TextField semesterTextField;
 
+
+	@FXML
+	Button saveButton;
+
 	@FXML
 	Button destroyButton;
 
@@ -42,6 +47,9 @@ public class EnrollmentController {
 		nameTableColumn.setCellValueFactory(cellData -> cellData.getValue().getSubject().nameProperty());
 		semesterTableColumn.setCellValueFactory(cellData -> cellData.getValue().semesterProperty());
 		changeStudentEvent();
+
+		saveButton.disableProperty().bind(Bindings.isNull(studentComboBox.valueProperty())
+				.or(Bindings.isNull(subjectComboBox.valueProperty())));
 		destroyButton.disableProperty().bind(tableView.getSelectionModel().selectedItemProperty().isNull());
 	}
 

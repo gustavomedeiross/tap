@@ -5,13 +5,10 @@ import java.util.ArrayList;
 import dao.PersonDAO;
 import domain.Student;
 import domain.Person;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class StudentController {
 	@FXML
@@ -50,6 +47,9 @@ public class StudentController {
 	@FXML 
   	TableColumn<Person, String> emailTableColumn;
 
+	@FXML
+	Button saveButton;
+
 	private ArrayList<Person> students;
 	private Person student;
 
@@ -58,6 +58,12 @@ public class StudentController {
 		nameTableColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 		phoneTableColumn.setCellValueFactory(cellData -> cellData.getValue().phoneProperty());
 		emailTableColumn.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
+
+		saveButton.disableProperty().bind(Bindings.isEmpty(nameTextField.textProperty())
+				.or(Bindings.isEmpty(birthDateTextField.textProperty()))
+				.or(Bindings.isEmpty(emailTextField.textProperty()))
+				.or(Bindings.isEmpty(phoneTextField.textProperty())));
+
 		showAllStudents();
 	}
 
@@ -73,6 +79,7 @@ public class StudentController {
 			student.setIsActive(isActiveCheckBox.isSelected());
 			PersonDAO.create(student);
 			student = null;
+			clearInputs();
 			showAllStudents();;
 		} else {
 			Student studentBeingUpdated = new Student();
@@ -86,10 +93,21 @@ public class StudentController {
 			studentBeingUpdated.setIsActive(isActiveCheckBox.isSelected());
 			PersonDAO.update(studentBeingUpdated);
 			student = null;
+			clearInputs();
 			showAllStudents();
 		}
 	}
 
+
+	private void clearInputs() {
+		nameTextField.setText("");
+		birthDateTextField.setText("");
+		maleRadioButton.setSelected(false);
+		femaleRadioButton.setSelected(false);
+		emailTextField.setText("");
+		phoneTextField.setText("");
+		isActiveCheckBox.setSelected(false);
+	}
 
 	@FXML
 	public void selectUserOnTable() {
